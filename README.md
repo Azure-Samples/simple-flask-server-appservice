@@ -1,6 +1,6 @@
 ---
 name: Flask App on Azure App Service
-description: Deploy a simple Flask app on App Service using the Azure Developer CLI.
+description: Deploy a Flask app on App Service using Azure Developer CLI.
 languages:
 - python
 - azdeveloper
@@ -8,7 +8,7 @@ products:
 - azure-app-service
 - azure
 page_type: sample
-urlFragment: azure-search-openai-demo
+urlFragment: simple-flask-server-appservice
 ---
 
 # Simple Flask App on Azure App Service
