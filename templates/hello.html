@@ -1,0 +1,12 @@
+<!doctype html>
+<head>
+	<title>Oh Hi There</title>
+	<link href="/static/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    {% if name %}
+	<h1>Hello, {{ name}}</h1>
+    {% else %}
+    <h1>Anonymous, are we??</h1>
+    {% endif %}
+</body>
