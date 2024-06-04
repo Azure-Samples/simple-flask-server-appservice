@@ -8,15 +8,14 @@
             "name": "Python: Flask",
             "type": "debugpy",
             "request": "launch",
-            "module": "flask",
+            "module": "quart",
             "env": {
-                "FLASK_APP": "src/app.py",
-                "FLASK_DEBUG": "1"
+                "QUART_APP": "src/app.py",
+                "QUART_DEBUG": "1"
             },
             "args": [
                 "run",
                 "--port=50505",
-                "--no-debugger",
                 "--reload"
             ],
             "jinja": true,
