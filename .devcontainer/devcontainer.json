@@ -1,6 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
-	"name": "simple-flask-server-example",
+	"name": "simple-flask-server-appservice",
 	"image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
 	"features": {
 		"ghcr.io/azure/azure-dev/azd:latest": {}
@@ -12,6 +12,8 @@
 		"extensions": [
 			"ms-python.python",
 			"ms-python.vscode-pylance",
+			"ms-python.black-formatter",
+			"charliermarsh.ruff",
 			"github.vscode-github-actions"
 		],
 		// Configure properties specific to VS Code.
@@ -20,28 +22,23 @@
 			"settings": { 
 				"python.defaultInterpreterPath": "/usr/local/bin/python",
 				"python.linting.enabled": true,
-				"python.linting.pylintEnabled": true,
-				"python.linting.pylintArgs": [
-					"--disable=C0114,C0115,C0116"
-				],
-				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
-				"python.testing.unittestEnabled": false,
 				"python.testing.pytestEnabled": true,
-				"workbench.startupEditor": "newUntitledFile"
+				"python.testing.unittestEnabled": false,
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter"
+				},
+				"python.formatting.provider": "black",
+				"files.exclude": {
+					"**/*.coverage": true,
+					".ruff_cache": true,
+					".pytest_cache": true
+				}
 			}
 		}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [8000, 8080],
+	"forwardPorts": [8000, 8080, 50505],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "pip install -r requirements.txt",
