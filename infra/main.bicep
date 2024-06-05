@@ -32,7 +32,7 @@ module web 'core/host/appservice.bicep' = {
     tags: union(tags, { 'azd-service-name': 'web' })
     appServicePlanId: appServicePlan.outputs.id
     runtimeName: 'python'
-    runtimeVersion: '3.10'
+    runtimeVersion: '3.12'
     scmDoBuildDuringDeployment: true
     ftpsState: 'Disabled'
     use32BitWorkerProcess: appServiceSku == 'F1'
