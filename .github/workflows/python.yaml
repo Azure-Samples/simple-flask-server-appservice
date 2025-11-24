@@ -16,7 +16,7 @@ jobs:
         os: ["ubuntu-latest"]
         python_version: ["3.11"]
     steps:
-        - uses: actions/checkout@v5
+        - uses: actions/checkout@v6
         - name: Setup python
           uses: actions/setup-python@v5
           with:
